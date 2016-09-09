@@ -1,0 +1,24 @@
+{
+    "name": "sturple/fgms-shopifyembedbundle",
+    "description": "Shopify Embed Bundle",
+    "type": "symfony-bundle",
+    "keywords": ["shopify", "auth", "symfony"],
+    "homepage": "https://github.com/sturple/fgms-shopifyembedbundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shawn Turple",
+            "email": "shawn@turple.ca"
+        }
+    ],
+    "require": {
+
+    },
+    "minimum-stability": "dev",
+    "target-dir": "FGMS/Bundle/ShopifyEmbedBundle",
+    "autoload" : {
+        "psr-0" : {"FGMS\\Bundle\\ShopifyEmbedBundle" : ""}
+    }
+
+
+}
