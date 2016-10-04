@@ -2,7 +2,7 @@
     "name": "sturple/fgms-shopifyembedbundle",
     "description": "Shopify Embed Bundle",
     "type": "symfony-bundle",
-    "keywords": ["shopify", "auth", "symfony"],
+    "keywords": ["shopify", "oauth","embed" "symfony"],
     "homepage": "https://github.com/sturple/fgms-shopifyembedbundle",
     "license": "MIT",
     "authors": [
@@ -12,12 +12,11 @@
         }
     ],
     "require": {
-
     },
     "minimum-stability": "dev",
-    "target-dir": "FGMS/Bundle/ShopifyEmbedBundle",
+    "target-dir": "Fgms/ShopifyEmbed",
     "autoload" : {
-        "psr-0" : {"FGMS\\Bundle\\ShopifyEmbedBundle" : ""}
+        "psr-0" : {"Fgms\\ShopifyEmbed" : ""}
     }
 
 

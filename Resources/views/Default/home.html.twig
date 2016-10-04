@@ -1,0 +1,101 @@
+{% extends 'FgmsShopifyBundle::base.html.twig' %}
+{% block javascripts %}	{% endblock %}
+{% block body %}
+	<div class="row homepage">
+		<div class="col-sm-4">
+			<a href="/shopify/products/">
+				<div class="well" style="text-align: center;">
+					<div><i class="fa fa-shopping-cart fa-4x"></i></div>
+					<h2>Products</h2>
+					<p>Add and manage your products on Shopify as well as any product page meta information (i.e. custom content and functionality).</p>
+				</div>				
+			</a>
+		</div>
+		<div class="col-sm-4">
+			<a href="/shopify/lp/">
+				<div class="well" style="text-align: center;">
+					<div><i class="fa fa-file-text-o fa-4x"></i></div>
+					<h2>Landing Pages</h2>
+					<p>Build and manage landing pages for online marketing programs.</p>
+				</div>
+			</a>			
+		</div>
+		<div class="col-sm-4">
+			<div class="well" style="text-align: center;">
+				<div><i class="fa fa-money fa-4x"></i></div>
+				<h2>Orders</h2>
+				<p><a  href="/shopify/orders/email/csv/" class="btn btn-success">Download Order Emails</a></p>
+			</div>
+		</div>			
+	</div>
+	<div class="row homepage">
+		<div class="col-sm-4">
+			<div class="well" style="text-align: center;">
+				<a href="/shopify/specials/">
+					<div ><i class="fa fa-bullhorn fa-4x"></i></div>
+					<h2>Specials</h2>
+					<p>Configuration for Specials</p>				
+				</a>
+			</div>
+		</div>
+		<div class="col-sm-4 hidden">
+			<a href="/shopify/slideshow/">
+				<div class="well" style="text-align: center;">
+					<div ><i class="fa fa-desktop fa-4x"></i></div>
+					<h2>Slideshow</h2>
+					<p>Configuration for Slideshow</p>					
+				</div>
+				
+			</a>
+		</div>
+		<div class="col-sm-4">
+			<a href="/shopify/forms/">
+				<div class="well" style="text-align: center;">
+					<div ><i class="fa fa-envelope-o fa-4x"></i></div>
+					<h2>Product Returns</h2>
+					<p></p>
+				</div>				
+			</a>
+		</div>		
+	</div>
+
+	<div class="row homepage hidden">
+		<div class="col-sm-4">
+			<a href="/shopify/forms/">
+				<div class="well" style="text-align: center;">
+					<div ><i class="fa fa-envelope-o fa-4x"></i></div>
+					<h2>Form Submissions &amp; Emails</h2>
+					<p>Setup and configure forms as well as your HTML/Text email communications.</p>
+				</div>				
+			</a>
+		</div>
+		<div class="col-sm-4">
+			<a href="/shopify/used/">
+				<div class="well" style="text-align: center;">
+					<div><i class="fa fa-recycle fa-4x"></i></div>
+					<h2>Refurbished &amp; Used Products</h2>
+					<p></p>
+				</div>
+			</a>
+			
+		</div>
+		<div class="col-sm-4">
+			<a href="/shopify/setup/">
+				<div class="well" style="text-align: center;">
+					<div ><i class="fa fa-cogs fa-4x"></i></div>
+					<h2>Settings</h2>					
+				</div>				
+			</a>
+		</div>				
+		
+	</div>
+
+{% endblock %}
+{% block stylesheets %}
+	<style>
+		.homepage a {color: #666;}
+		.homepage a:hover {color: #666; text-decoration: none;}
+		.homepage .well { min-height: 260px;}
+	</style>
+	
+{% endblock %}

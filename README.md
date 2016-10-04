@@ -6,12 +6,6 @@
 
 ```json
 {
-    "repositories" : [
-        {
-            "type" : "git",
-            "url" : "https://github.com/sturple/fanferret-questionbundle"
-        }
-    ],    
    "require": {
        "sturpe/fgms-shopifyembedbundle": "dev-master"
    }
@@ -38,7 +32,7 @@ class AppKernel extends Kernel
     {
         $bundles = [
             ...
-             new FGMS\ShopifyEmbed\FGMSShopifyEmbedBundle();
+             new Fgms\ShopifyEmbed\FgmsShopifyEmbedBundle();
         ]
     }
 }            

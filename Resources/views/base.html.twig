@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{{page.title}}{% endblock %}</title>    
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.shopify.com/s/assets/external/app.js"></script>
+    <script type="text/javascript">
+        ShopifyApp.init({
+          apiKey: '{{shopify.api_key}}',
+          shopOrigin: 'https://{{shop}}',
+          debug: true,
+          forceRedirect: true
+        });
+        ShopifyApp.ready(function() {
+          ShopifyApp.Bar.initialize({
+            title: '{{page.title}}',
+            buttons: {
+              primary : { label : 'Home', href : "/shopify/oauth", target: "app"},
+              secondary: [                         
+
+
+              ],                    
+            }                    
+          });
+        });  
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css" rel="stylesheet" type="text/css"  media="all"  />   
+    {% block javascripts %}{% endblock %}        
+  </head>
+  <body>
+    {% block navigation %}{%endblock%}
+    <div class="container">              
+      <div class="row">
+        <div class="col-md-12">                    
+            <h1>{{page.title}}</h1>
+            {% block body %}{% endblock %}
+        </div>                
+      </div>
+    </div>
+   {% block stylesheets %}{% endblock %}
+  </body>
+</html>

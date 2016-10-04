@@ -1,0 +1,14 @@
+fgms_shopify_oauth:
+    path: /oauth
+    defaults: { _controller: FgmsShopifyEmbedBundle:Default:oauth }
+    methods: [GET,POST]
+    
+fgms_shopify_home:
+    path: /
+    defaults: { _controller: FgmsShopifyEmbedBundle:Default:index }
+    methods: [GET,POST]
+    
+fgms_shopify_test:
+    path: /sturple
+    defaults: { _controller: FgmsShopifyEmbedBundle:Default:test }
+    methods: [GET,POST]
