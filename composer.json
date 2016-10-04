@@ -2,7 +2,7 @@
     "name": "sturple/fgms-shopifyembedbundle",
     "description": "Shopify Embed Bundle",
     "type": "symfony-bundle",
-    "keywords": ["shopify", "oauth","embed" "symfony"],
+    "keywords": ["shopify", "oauth","embed", "symfony"],
     "homepage": "https://github.com/sturple/fgms-shopifyembedbundle",
     "license": "MIT",
     "authors": [
