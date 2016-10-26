@@ -12,6 +12,7 @@
         }
     ],
     "require": {
+      
     },
     "minimum-stability": "dev",
     "target-dir": "Fgms/ShopifyEmbed",
