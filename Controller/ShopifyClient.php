@@ -15,7 +15,7 @@ class ShopifyClient  {
 		$this->shop_domain = $settings['shop'];									
 		$this->secret = $settings['shopify']['shared_secret'];
 		$this->api_key = $settings['shopify']['api_key'];		
-		$this->token = $settings['token'];
+		$this->token = empty($settings['db']) ? ( empty($settings['token']) ? '' : $settings['token']) : $settings['db']->getAccessToken();
 		$this->logger = $logger;		
 		$this->logger->notice('ShopifyClient::__consturct',array($this->name,$this->token,$this->api_key, $this->secret));		
 		
@@ -26,7 +26,7 @@ class ShopifyClient  {
 	}
 	// Get the URL required to request authorization
 	public function getAuthorizeUrl($scope, $redirect_url='') {
-		$url = "http://{$this->shop_domain}/admin/oauth/authorize?client_id={$this->api_key}&scope=" . urlencode($scope);
+		$url = "https://{$this->shop_domain}/admin/oauth/authorize?client_id={$this->api_key}&scope=" . urlencode($scope);
 		if ($redirect_url != ''){
 			$url .= "&redirect_uri=" . urlencode($redirect_url);
 		}
@@ -287,66 +287,5 @@ class ShopifyClient  {
 		return $currentTheme;
 	}
 	
-	
-	
-  static public function GET_SETTINGS(Controller $controller) {		
-		$yaml = new Parser(); 
-		$logger = 	$controller->get('logger');				
-		$logger->info($controller->get('kernel')->getRootDir().'/config/parameters.yml');
-		$yaml = $yaml->parse(file_get_contents($controller->get('kernel')->getRootDir().'/config/parameters.yml'));
-		$store_name = $controller->get('request_stack')->query->has('shop') ? $controller->get('request_stack')->query->get('shop') : $controller->get('request_stack')->getSession()->get('shop');
-		$controller->get('request_stack')->getSession()->set('shop',$store_name);
-		$shopSettings = $controller->getDoctrine()
-			->getManager()
-			->getRepository('FgmsShopifyBundle:ShopifyShopSettings')
-			->findOneBy(array('storeName'=>$store_name,'status'=>'active'));
-		$logger = 	$controller->get('logger');
-    $parameters = $yaml['parameters'];
-		$array = array('shared_secret' =>$parameters['shopify_shared_secret'],
-					 'api_key'=>$parameters['shopify_api_key'],
-					 'scope' =>$parameters['shopify_scope'],
-					 'redirect_url'=> $parameters['shopify_redirect_url'],
-					 'session' =>$controller->get('request_stack')->getSession(),
-					 'logger' =>$logger,
-					 'template'=>array(),
-					 'shop'=>$store_name,
-					 'shopify'=>new ShopifyClient($store_name,$shopSettings->getAccessToken(),
-												  $parameters['shopify_api_key'],
-												  $parameters['shopify_shared_secret'],
-												  $logger)
-					 );      
-	return $array;
-
-		
-
-    }	
-	
 }
-/*
-class ShopifyCurlException extends Exception { }
-class ShopifyApiException extends Exception
-{
-	protected $method;
-	protected $path;
-	protected $params;
-	protected $response_headers;
-	protected $response;
-	
-	function __construct($method, $path, $params, $response_headers, $response)
-	{
-		$this->method = $method;
-		$this->path = $path;
-		$this->params = $params;
-		$this->response_headers = $response_headers;
-		$this->response = $response;
-		
-		parent::__construct($response_headers['http_status_message'], $response_headers['http_status_code']);
-	}
-
-	function getMethod() { return $this->method; }
-	function getPath() { return $this->path; }
-	function getParams() { return $this->params; }
-	function getResponseHeaders() { return $this->response_headers; }
-	function getResponse() { return $this->response; }
-}*/
 ?>
