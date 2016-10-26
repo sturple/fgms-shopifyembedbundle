@@ -34,6 +34,13 @@ class ShopSettings
      * @ORM\Column(name="storeName", type="string", length=255, nullable=true)
      */
     private $storeName;
+  
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nameSpace", type="string", length=255, nullable=true)
+     */
+    private $nameSpace;  
 
     /**
      * @var \DateTime
@@ -97,8 +104,8 @@ class ShopSettings
 
         return $this;
     }
-
-    /**
+  
+     /**
      * Get storeName
      *
      * @return string
@@ -106,7 +113,31 @@ class ShopSettings
     public function getStoreName()
     {
         return $this->storeName;
+    } 
+
+    /**
+     * Get nameSpace
+     *
+     * @return string
+     */
+    public function getNameSpace()
+    {
+        return $this->nameSpace;
     }
+    /**
+     * Set nameSpace
+     *
+     * @param string $nameSpace
+     *
+     * @return ShopSettings
+     */
+    public function setNameSpace($nameSpace)
+    {
+        $this->nameSpace = $nameSpace;
+
+        return $this;
+    }
+
 
     /**
      * Set createDate
