@@ -1,16 +1,20 @@
 {% extends 'FgmsShopifyEmbedBundle::auth.html.twig' %}
 
 {% block body %}
-<p>Install this app in a shop to get access to its private admin data.</p> 
+  {% if page.content is defined %}
+  {{page.content}}
+  {% else %}
+  <p>Install this app in a shop to get access to its private admin data.</p> 
+  <p style="padding-bottom: 1em;">
+      <span class="hint">Don&rsquo;t have a shop to install your app in handy? <a href="https://app.shopify.com/services/partners/api_clients/test_shops">Create a test shop.</a></span>
+  </p> 
+  {% endif %}
 
-    <p style="padding-bottom: 1em;">
-        <span class="hint">Don&rsquo;t have a shop to install your app in handy? <a href="https://app.shopify.com/services/partners/api_clients/test_shops">Create a test shop.</a></span>
-    </p> 
-{% if form is defined %}
-  {{ form_start(form) }}
-  {{ form_widget(form) }}
-  {{ form_end(form) }}
-{% endif %}
+  {% if form is defined %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+  {% endif %}
    
 {% endblock %}
 
@@ -23,6 +27,12 @@
     p { margin: 0 0 1em 0; }
     a { color: #0000F0; }
     a:hover { text-decoration: none; }
+    label {
+      margin-right: 15px;
+    }
+    button {
+      margin-top: 15px;
+    }
   
 </style>
 {% endblock %}
